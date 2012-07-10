@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" Content="text/html;charset=UTF-8">
+<title>フォームサンプル</title>
+</head>
+<body>
+
+<p>アンケート調査です</p>
+
+<form action="/sample/RequestSample1" method="get">
+
+<table>
+<tr>
+<td>氏名</td>
+<td><input type="text" size="20" value="" name="name"></td>
+</tr>
+<tr>
+<td>年齢</td>
+<td><input type="text" size="5" value="" name="old"></td>
+</tr>
+<tr>
+<td>好きな果物</td>
+<td>
+<select name="food" size="3" multiple>
+<option value="apple">りんご</option>
+<option value="melon">メロン</option>
+<option value="grape">ぶどう</option>
+</select>
+</td>
+</tr>
+</table>
+<input type="submit" name="button1" value="送信">
+</form>
+
+</body>
+</html>
