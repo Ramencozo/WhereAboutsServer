@@ -34,7 +34,7 @@ public class MainWindow {
 		try {
 			factory.start();
 			client = factory.newWebSocketClient();
-			futureConnection = client.open(new URI("ws://192.168.1.4:38400/echo"), new WebSocket.OnTextMessage() {
+			futureConnection = client.open(new URI("ws://サーバURL:ポート/echo"), new WebSocket.OnTextMessage() {
 				@Override
 				public void onOpen(Connection arg0) { System.out.println("MainWindow() -> onOpen()"); }
 				@Override
@@ -52,7 +52,7 @@ public class MainWindow {
 		new Thread(){
 			@Override
 			public void run() {
-				server = new Server(19200);
+				server = new Server(/* int HTTPサーバポート */);
 				ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
 				server.setHandler(context);
 				context.addServlet(new ServletHolder(new MyHttpServlet()), "/whereabouts");
@@ -69,7 +69,7 @@ public class MainWindow {
 		
 		new Thread(){
 			public void run() {
-				webSocketServer = new WebSocketServer(38400, "./html");
+				webSocketServer = new WebSocketServer(/* int WebSocketサーバポート */, "./html");
 				try {
 					webSocketServer.start();
 					webSocketServer.join();
@@ -180,21 +180,21 @@ public class MainWindow {
 		    sb.append("<p>");
 		    sb.append("ID対応表:");
 		    sb.append("<br />");
-		    sb.append("0:岸本享太,　　　　 1:下地泰寛,");
+		    sb.append("0:Student0,　　　　 1:Student1,");
 		    sb.append("<br />");
-		    sb.append("2:高良修平,　　　　 3:仲尾一也,");
+		    sb.append("2:Student2,　　　　 3:Student3,");
 		    sb.append("<br />");
-		    sb.append("4:ヲレ　　　　,　　　　5:松原諒,");
+		    sb.append("4:Student4　　　　,　　　　5:Student5,");
 		    sb.append("<br />");
-		    sb.append("6:諸見里斉,　　　　 7:未定(AC1年),");
+		    sb.append("6:Student6,　　　　 7:Student7,");
 		    sb.append("<br />");
-		    sb.append("8:未定(AC1年),　　 9:未定(AC1年),");
+		    sb.append("8:Student8,　　 9:Student9,");
 		    sb.append("<br />");
-		    sb.append("10:未定(AC1年), 　11:未定(AC1年),");
+		    sb.append("10:Student10, 　11:Student11,");
 		    sb.append("<br />");
-		    sb.append("12:未定(AC1年), 　13:未定(AC1年),");
+		    sb.append("12:Student12, 　13:Student13,");
 		    sb.append("<br />");
-		    sb.append("14:未定(AC1年), 　15:以降不在");
+		    sb.append("14:Student14, 　15:Student15");
 		    sb.append("</p>");
 
 		    sb.append("<p>");
